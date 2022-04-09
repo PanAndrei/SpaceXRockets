@@ -14,7 +14,6 @@
 		B6F89DEE2801FD1200748CE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6F89DED2801FD1200748CE3 /* Assets.xcassets */; };
 		B6F89DF12801FD1200748CE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6F89DEF2801FD1200748CE3 /* LaunchScreen.storyboard */; };
 		B6F89DFA2802000D00748CE3 /* MainImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89DF92802000D00748CE3 /* MainImageView.swift */; };
-		B6F89DFC2802017E00748CE3 /* MainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89DFB2802017E00748CE3 /* MainInfoView.swift */; };
 		B6F89E00280216D800748CE3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89DFF280216D800748CE3 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +27,6 @@
 		B6F89DF02801FD1200748CE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6F89DF22801FD1200748CE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6F89DF92802000D00748CE3 /* MainImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainImageView.swift; sourceTree = "<group>"; };
-		B6F89DFB2802017E00748CE3 /* MainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoView.swift; sourceTree = "<group>"; };
 		B6F89DFF280216D800748CE3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,7 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				B6F89DF92802000D00748CE3 /* MainImageView.swift */,
-				B6F89DFB2802017E00748CE3 /* MainInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,7 +172,6 @@
 				B6F89E00280216D800748CE3 /* Extensions.swift in Sources */,
 				B6F89DFA2802000D00748CE3 /* MainImageView.swift in Sources */,
 				B6F89DE52801FD1100748CE3 /* AppDelegate.swift in Sources */,
-				B6F89DFC2802017E00748CE3 /* MainInfoView.swift in Sources */,
 				B6F89DE72801FD1100748CE3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

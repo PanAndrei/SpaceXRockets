@@ -19,7 +19,7 @@ class MainImageView: UIView {
     
     private lazy var rocketNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Falcon"
+        label.text = "Falcon Heavy "
         return label
     }()
     

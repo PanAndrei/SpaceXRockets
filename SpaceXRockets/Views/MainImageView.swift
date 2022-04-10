@@ -23,7 +23,7 @@ class MainImageView: UIView {
         return label
     }()
     
-    private lazy var settingsButton: UIButton = {
+    var settingsButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "seal"), for: .normal)
         return button
@@ -69,7 +69,5 @@ class MainImageView: UIView {
         rocketNameLabel.centerY(inView: infoSubView, leftAncor: leftAnchor, paddingLeft: 16)
         settingsButton.centerY(inView: infoSubView, rightAnchor: rightAnchor, paddingRight: 16)
     }
-    
-    // MARK: - Selectors
     
 }

@@ -13,7 +13,11 @@ class MainViewController: UIViewController {
     
     // MARK: - Properties
     
-    private let mainImageView = MainImageView()
+    private lazy var mainImageView: MainImageView = {
+       let view = MainImageView()
+        view.settingsButton.addTarget(self, action: #selector(goToSettings), for: .touchUpInside)
+        return view
+    }()
     
     private lazy var parameterCollectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
@@ -30,7 +34,12 @@ class MainViewController: UIViewController {
         return collectionView
     }()
     
-    private let descriptionScrollView = DescriptionScrollView()
+    private lazy var descriptionScrollView: DescriptionScrollView = {
+        let view = DescriptionScrollView()
+        view.showLaunchesButton.addTarget(self, action: #selector(goToLaunch), for: .touchUpInside)
+        return view
+    }()
+    
     
     // MARK: - Lifecycle
     
@@ -58,8 +67,19 @@ class MainViewController: UIViewController {
         parameterCollectionView.anchor(top: mainImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 120)
         
         descriptionScrollView.anchor(top: parameterCollectionView.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
+        
     }
     
+    // MARK: - Selectors
+    
+    @objc func goToSettings() {
+        let settingsVC = SettingsViewController()
+        self.present(settingsVC, animated: true)
+    }
+    
+    @objc func goToLaunch() {
+        navigationController?.pushViewController(LauchHistoryViewController(), animated: true)
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -74,9 +94,9 @@ extension MainViewController: UICollectionViewDataSource {
         return cell
     }
     
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return 1
-//    }
+    //    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    //        return 1
+    //    }
     
 }
 

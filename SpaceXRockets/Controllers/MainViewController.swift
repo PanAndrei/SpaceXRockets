@@ -74,9 +74,9 @@ extension MainViewController: UICollectionViewDataSource {
         return cell
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        return 1
+//    }
     
 }
 

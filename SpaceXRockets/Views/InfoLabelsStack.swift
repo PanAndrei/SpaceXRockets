@@ -43,11 +43,11 @@ class InfolabelsStack: UIView {
     
     // MARK: - Lifecycle
 
-    init(description: String, value: String) {
-        super.init(frame: .zero)
-        self.descriptionT = description
-        self.value = value
-    }
+//    init(description: String, value: String) {
+//        super.init(frame: .zero)
+//        self.descriptionT = description
+//        self.value = value
+//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

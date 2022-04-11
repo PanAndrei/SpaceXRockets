@@ -11,13 +11,15 @@ class MainImageView: UIView {
     
     // MARK: - Properties
     
+    // uiimageview
     private lazy var imageView: UIView = {
         let view = UIView()
         view.backgroundColor = .red
         return view
     }()
     
-    private lazy var rocketNameLabel: UILabel = {
+//    private lazy var rocketNameLabel: UILabel = {
+     var rocketNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Falcon Heavy "
         return label

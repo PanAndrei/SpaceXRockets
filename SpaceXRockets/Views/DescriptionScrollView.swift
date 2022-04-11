@@ -13,6 +13,7 @@ class DescriptionScrollView: UIView {
 
     private lazy var text1: InfolabelsStack = {
         let stack = InfolabelsStack(descr: "Первый запуск", val: "2222")
+        // position to save
         return stack
     }()
     

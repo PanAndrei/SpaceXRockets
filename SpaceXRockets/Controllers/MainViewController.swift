@@ -13,8 +13,12 @@ class MainViewController: UIViewController {
     
     // MARK: - Properties
     
+    var pageTitle = ""
+    var pageIndex = 0
+    
     private lazy var mainImageView: MainImageView = {
        let view = MainImageView()
+        view.rocketNameLabel.text = pageTitle
         view.settingsButton.addTarget(self, action: #selector(goToSettings), for: .touchUpInside)
         return view
     }()
@@ -45,8 +49,10 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         setupView()
+        
+        print(pageTitle)
     }
     
     // MARK: - Helpers
@@ -62,11 +68,14 @@ class MainViewController: UIViewController {
     }
     
     func setupConstraints() {
-        mainImageView.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 300)
+        mainImageView.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor,
+                             height: 300)
         
-        parameterCollectionView.anchor(top: mainImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 120)
+        parameterCollectionView.anchor(top: mainImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor,
+                                       height: 120)
         
-        descriptionScrollView.anchor(top: parameterCollectionView.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
+        descriptionScrollView.anchor(top: parameterCollectionView.bottomAnchor, left: view.leftAnchor,
+                                     bottom: view.bottomAnchor, right: view.rightAnchor)
         
     }
     
@@ -78,7 +87,10 @@ class MainViewController: UIViewController {
     }
     
     @objc func goToLaunch() {
-        navigationController?.pushViewController(LauchHistoryViewController(), animated: true)
+        let launchVC = LauchHistoryViewController()
+        launchVC.modalPresentationStyle = .fullScreen
+        self.present(launchVC, animated: true)
+//        navigationController?.pushViewController(LauchHistoryViewController(), animated: true)
     }
 }
 
@@ -105,4 +117,5 @@ extension MainViewController: UICollectionViewDataSource {
 extension MainViewController: UICollectionViewDelegate {
     
 }
+
 

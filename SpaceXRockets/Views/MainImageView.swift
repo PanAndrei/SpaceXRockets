@@ -11,17 +11,34 @@ class MainImageView: UIView {
     
     // MARK: - Properties
     
-    // uiimageview
-    private lazy var imageView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
+    var rocket: RocketViewModel? {
+        didSet {
+            if let rocket = rocket {
+                rocketNameLabel.text = rocket.name
+                
+                NetworkManager.shared.getImage(urlString: rocket.imageURL) { data in
+                    guard let data = data else { return }
+                    
+                    DispatchQueue.main.async {
+                        self.imageView.image = UIImage(data: data)
+                    }
+                }
+            }
+        }
+    }
+
+    private lazy var imageView: UIImageView = {
+        let view = UIImageView()
+        view.backgroundColor = .black
         return view
     }()
     
-//    private lazy var rocketNameLabel: UILabel = {
-     var rocketNameLabel: UILabel = {
+    //    private lazy var rocketNameLabel: UILabel = {
+    private lazy var rocketNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Falcon Heavy "
+        label.font = UIFont.boldSystemFont(ofSize: 25)
+        label.text = "---"
+        label.textColor = .white
         return label
     }()
     
@@ -33,7 +50,8 @@ class MainImageView: UIView {
     
     private lazy var infoSubView: UIView = {
         let view = UIView()
-        view.backgroundColor = .green
+        view.backgroundColor = .black
+        view.layer.cornerRadius = 25
         return view
     }()
     
@@ -64,12 +82,26 @@ class MainImageView: UIView {
     }
     
     func setupConstraints() {
-        imageView.anchor(top: topAnchor, left: leftAnchor, right: rightAnchor, height: 200)
-
-        infoSubView.anchor(top: imageView.bottomAnchor, left: leftAnchor, right: rightAnchor, height: 100)
+        imageView.anchor(top: topAnchor, left: leftAnchor, right: rightAnchor, height: 300)
         
-        rocketNameLabel.centerY(inView: infoSubView, leftAncor: leftAnchor, paddingLeft: 16)
-        settingsButton.centerY(inView: infoSubView, rightAnchor: rightAnchor, paddingRight: 16)
+        infoSubView.anchor(top: imageView.bottomAnchor, left: leftAnchor, right: rightAnchor, padddingTop: -25 ,height: 75)
+        
+        rocketNameLabel.centerY(inView: infoSubView, leftAncor: leftAnchor, paddingLeft: 24)
+        settingsButton.centerY(inView: infoSubView, rightAnchor: rightAnchor, paddingRight: 24)
     }
     
+}
+
+
+//
+//
+//
+
+extension UIView {
+   func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
+    }
 }

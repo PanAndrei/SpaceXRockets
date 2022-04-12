@@ -81,7 +81,6 @@ extension PageViewController: UIPageViewControllerDelegate, UIPageViewController
         guard (self.pageTitles.count != 0) || (index < self.pageTitles.count) else { return nil }
         
         let pageContentViewController = MainViewController()
-        pageContentViewController.pageTitle = pageTitles[index]
         pageContentViewController.pageIndex = index
         
         currentIndex = index

@@ -24,6 +24,10 @@
 		B6F89E1128041CD200748CE3 /* LaunchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89E1028041CD100748CE3 /* LaunchTableViewCell.swift */; };
 		B6F89E13280455B700748CE3 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89E12280455B700748CE3 /* PageViewController.swift */; };
 		B6F89E17280471E800748CE3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89E16280471E800748CE3 /* API.swift */; };
+		B6F89E1A2804A2C400748CE3 /* NetworlManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89E192804A2C400748CE3 /* NetworlManager.swift */; };
+		B6F89E1D2804A39A00748CE3 /* RocketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89E1C2804A39A00748CE3 /* RocketModel.swift */; };
+		B6F89E1F2804AEFF00748CE3 /* RocketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89E1E2804AEFF00748CE3 /* RocketViewModel.swift */; };
+		B6F89E222804B0D600748CE3 /* RocketsPackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89E212804B0D600748CE3 /* RocketsPackViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		B6F89E1028041CD100748CE3 /* LaunchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchTableViewCell.swift; sourceTree = "<group>"; };
 		B6F89E12280455B700748CE3 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		B6F89E16280471E800748CE3 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		B6F89E192804A2C400748CE3 /* NetworlManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworlManager.swift; sourceTree = "<group>"; };
+		B6F89E1C2804A39A00748CE3 /* RocketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketModel.swift; sourceTree = "<group>"; };
+		B6F89E1E2804AEFF00748CE3 /* RocketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketViewModel.swift; sourceTree = "<group>"; };
+		B6F89E212804B0D600748CE3 /* RocketsPackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsPackViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,11 +86,13 @@
 		B6F89DE32801FD1100748CE3 /* SpaceXRockets */ = {
 			isa = PBXGroup;
 			children = (
-				B6F89E15280471DB00748CE3 /* API */,
+				B6F89E202804AF3C00748CE3 /* ViewModels */,
 				B6F89E14280471C300748CE3 /* Core */,
-				B6F89DFE280216BA00748CE3 /* Utilits */,
-				B6F89DFD2802155200748CE3 /* Controllers */,
 				B6F89DF82801FFD600748CE3 /* Views */,
+				B6F89DFD2802155200748CE3 /* Controllers */,
+				B6F89E182804A29700748CE3 /* Services */,
+				B6F89DFE280216BA00748CE3 /* Utilits */,
+				B6F89E15280471DB00748CE3 /* API */,
 				B6F89DEA2801FD1100748CE3 /* Main.storyboard */,
 				B6F89DED2801FD1200748CE3 /* Assets.xcassets */,
 				B6F89DEF2801FD1200748CE3 /* LaunchScreen.storyboard */,
@@ -146,6 +156,32 @@
 				B6F89E16280471E800748CE3 /* API.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		B6F89E182804A29700748CE3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B6F89E192804A2C400748CE3 /* NetworlManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B6F89E1B2804A38C00748CE3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B6F89E1C2804A39A00748CE3 /* RocketModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B6F89E202804AF3C00748CE3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B6F89E1E2804AEFF00748CE3 /* RocketViewModel.swift */,
+				B6F89E212804B0D600748CE3 /* RocketsPackViewModel.swift */,
+				B6F89E1B2804A38C00748CE3 /* Models */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +260,10 @@
 				B6F89E0F28034BB800748CE3 /* SettingsStack.swift in Sources */,
 				B6F89DFA2802000D00748CE3 /* MainImageView.swift in Sources */,
 				B6F89E0D28034AD100748CE3 /* SettingsViewController.swift in Sources */,
+				B6F89E222804B0D600748CE3 /* RocketsPackViewModel.swift in Sources */,
+				B6F89E1D2804A39A00748CE3 /* RocketModel.swift in Sources */,
+				B6F89E1F2804AEFF00748CE3 /* RocketViewModel.swift in Sources */,
+				B6F89E1A2804A2C400748CE3 /* NetworlManager.swift in Sources */,
 				B6F89E0B28033D4C00748CE3 /* LauchHistoryViewController.swift in Sources */,
 				B6F89E17280471E800748CE3 /* API.swift in Sources */,
 				B6F89E04280226B500748CE3 /* ParameterCell.swift in Sources */,

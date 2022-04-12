@@ -20,7 +20,11 @@ class LauchHistoryViewController: UITableViewController {
         
         tableView.register(LaunchTableViewCell.self, forCellReuseIdentifier: ident)
         tableView.estimatedRowHeight = 300
+        
+//        setupView()
     }
+    
+    // MARK: - Helpers
 
     // MARK: - Table view data source
 

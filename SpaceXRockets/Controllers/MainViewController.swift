@@ -8,17 +8,17 @@
 import UIKit
 
 // add settings save
+// add description view
 
 class MainViewController: UIViewController {
     
     // MARK: - Properties
     
-    var pageTitle = ""
     var pageIndex = 0
+    var viewModel = RocketsPackViewModel()
     
     private lazy var mainImageView: MainImageView = {
-       let view = MainImageView()
-        view.rocketNameLabel.text = pageTitle
+        let view = MainImageView()
         view.settingsButton.addTarget(self, action: #selector(goToSettings), for: .touchUpInside)
         return view
     }()
@@ -49,13 +49,19 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        setupView()
         
-        print(pageTitle)
+        getRockets()
+        
+        setupView()
     }
     
     // MARK: - Helpers
+    
+    func getRockets() {
+        viewModel.getRockets { _ in
+            self.mainImageView.rocket = self.viewModel.rocketPack[self.pageIndex]
+        }
+    }
     
     func setupView() {
         view.backgroundColor = .white
@@ -68,9 +74,8 @@ class MainViewController: UIViewController {
     }
     
     func setupConstraints() {
-        mainImageView.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor,
-                             height: 300)
-        
+        mainImageView.anchor(top: view.topAnchor, left: view.leftAnchor,right: view.rightAnchor,
+                             height: 350)
         parameterCollectionView.anchor(top: mainImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor,
                                        height: 120)
         
@@ -87,10 +92,7 @@ class MainViewController: UIViewController {
     }
     
     @objc func goToLaunch() {
-        let launchVC = LauchHistoryViewController()
-        launchVC.modalPresentationStyle = .fullScreen
-        self.present(launchVC, animated: true)
-//        navigationController?.pushViewController(LauchHistoryViewController(), animated: true)
+        navigationController?.pushViewController(LauchHistoryViewController(), animated: true)
     }
 }
 
@@ -105,11 +107,6 @@ extension MainViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ParameterCell.identifier, for: indexPath)
         return cell
     }
-    
-    //    func numberOfSections(in collectionView: UICollectionView) -> Int {
-    //        return 1
-    //    }
-    
 }
 
 // MARK: - UICollectionViewDelegate

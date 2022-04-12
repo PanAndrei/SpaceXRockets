@@ -11,16 +11,24 @@ import Foundation
 //
 struct Rocket: Codable {
     
+    //
     let name: String
+    let flickr_images: [String]
+    // for additional
+    let description: String
+    let wikipedia: String
+    //
     
+    //
     let height: Height
     let diameter: Diameter
     let mass: Weight
-//    let payload_weights: Payload
+    let payload_weights: [Payload]
+    //
 
     let id: String
     
-    let flickr_images: [String]
+    
 }
 
 struct Height: Codable {
@@ -38,8 +46,9 @@ struct Weight: Codable {
     let lb: Double?
 }
 
-//struct Payload: Codable {
-//    let kg: Double?
-//    let lb: Double?
-//}
+struct Payload: Codable {
+    let id: String?
+    let kg: Double?
+    let lb: Double?
+}
 

@@ -23,6 +23,10 @@ class MainViewController: UIViewController {
         return view
     }()
     
+    //
+    let parameterCell = ParameterCell()
+    //
+    
     private lazy var parameterCollectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
         viewLayout.scrollDirection = .horizontal
@@ -53,6 +57,8 @@ class MainViewController: UIViewController {
         getRockets()
         
         setupView()
+        
+        
     }
     
     // MARK: - Helpers
@@ -60,6 +66,22 @@ class MainViewController: UIViewController {
     func getRockets() {
         viewModel.getRockets { _ in
             self.mainImageView.rocket = self.viewModel.rocketPack[self.pageIndex]
+            
+            //
+//            self.parameterCell.rocket = self.viewModel.rocketPack[self.pageIndex]
+            //
+            
+            self.parameterCell.parameters = self.viewModel.rocketPack[self.pageIndex].parameters
+//            print(self.parameterCell.parameters![self.pageIndex][0])
+//            print(self.parameterCell.parameters![self.pageIndex][1])
+//            print(self.parameterCell.parameters![self.pageIndex][2])
+            
+            // передать параметр
+            
+            print(self.parameterCell.parameters?.count)
+            self.parameterCell.parameter = self.parameterCell.parameters?[0]
+            print(self.parameterCell.parameter)
+            self.parameterCollectionView.reloadData()
         }
     }
     
@@ -100,12 +122,24 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
+    // worce unwrap
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ParameterCell.identifier, for: indexPath)
-        return cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ParameterCell.identifier, for: indexPath) as? ParameterCell
+        
+//        //
+////        let parameterCell = viewModel.rocketPack[pageIndex].parameters[indexPath.row]
+//        let parameterCell = cell?.parameters?[indexPath.row]
+//        cell?.parameter = parameterCell
+//        //
+//        DispatchQueue.main.async {
+//            print(cell?.parameter?[0])
+//
+//        }
+        
+        return cell ?? UICollectionViewCell()
     }
 }
 

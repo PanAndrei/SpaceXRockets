@@ -25,11 +25,9 @@ class SettingsStack: UIStackView {
         let items = [measure1, measure2]
         
         let switcher = UISegmentedControl(items: items)
-        switcher.selectedSegmentIndex = 0
         switcher.layer.cornerRadius = 5
         switcher.backgroundColor = .orange
         switcher.tintColor = .green
-        // add target
         return switcher
     }()
     
@@ -43,7 +41,6 @@ class SettingsStack: UIStackView {
         self.measure2 = mes2
         
         setupView()
-        
     }
     
     required init(coder: NSCoder) {
@@ -68,5 +65,4 @@ class SettingsStack: UIStackView {
         measureSwitcher.centerY(inView: self, rightAnchor: rightAnchor, paddingRight: 16)
     }
 
-    
 }

@@ -7,65 +7,124 @@
 
 import Foundation
 
-struct RocketViewModel: Codable {
-    
-    // add settings
-    
-    // MARK: - imageview
+let defaults = UserDefaults.standard
 
+struct RocketViewModel {
     
     var rockets: Rocket
-    
-    var name: String {
-        return rockets.name ?? "kakoeto name"
+    let defaults = UserDefaults.standard
+
+    // MARK: - imageview
+
+    var name: String? {
+        return rockets.name
     }
     
-    var id: String {
+    var id: String? {
         return rockets.id
     }
     
-    var imageURL: String {
-        rockets.flickr_images.randomElement()!
-//        return URL(string: rockets.flickr_images.randomElement()!)!
+    var imageURL: String? {
+       return rockets.flickr_images.randomElement()!
     }
     
-    // MARK: - cell
+    // MARK: - Cell
+
+    // хитрая строка с разным шрифтом
     
-    // all meters
-    
-    // force unwrap
-    var parameters: [[String]] {
-        let hightArr = ["высота", "m", String(rockets.height.meters!)]
-        let diameterArr = ["", "", String(rockets.diameter.meters!)]
-        let weightArr = ["", "", String(rockets.mass.kg!)]
+    var heighValue: [String]? {
         
-        let leo = rockets.payload_weights.filter { $0.id == "leo" }.first!
-        let payloadArr = ["", "", String(leo.kg!)]
-        
-        let parametersArr = [hightArr, diameterArr, weightArr, payloadArr]
-        
-        return parametersArr
+        switch defaults.integer(forKey: Settings.heigh.rawValue) {
+        case 0:
+            return [String(rockets.height.meters!), "высота, m"]
+        default:
+            return [String(rockets.height.feet!), "высота, ft"]
+        }
     }
     
+    var diameterValue: [String]? {
+        switch defaults.integer(forKey: Settings.diameter.rawValue) {
+        case 0:
+            return [String(rockets.diameter.meters!), "диаметр, m"]
+        default:
+            return [String(rockets.diameter.feet!), "диаметр, ft"]
+        }
+        // swith
+//        return [String(rockets.diameter.meters!), "диаметр, m"]
+    }
     
+    var massValue: [String]? {
+        
+        switch defaults.integer(forKey: Settings.weight.rawValue) {
+        case 0:
+            return [String(rockets.mass.kg!), "масса, kg"]
+        default:
+            return [String(rockets.mass.lb!), "масса, lb"]
+        }
+        
+        // swith
+//        return [String(rockets.mass.kg!), "масса, kg"]
+    }
     
+    var payloadValue: [String]? {
+        let payload = rockets.payload_weights.filter { $0.id == "leo"}.first!
+        
+        switch defaults.integer(forKey: Settings.payload.rawValue) {
+        case 0:
+            return [String(payload.kg!), "масса, kg"]
+        default:
+            return [String(payload.lb!), "масса, lb"]
+        }
+        
+//        return [String(payload.kg!), "масса, kg"]
+    }
+    
+    // MARK: - Info
 
-//
-//    var height: Double {
-//        return rockets.height.meters ?? 0
-//    }
-//
-//    var mass: Double {
-//        return rockets.mass.kg ?? 0
-//    }
-
-//    var payload: Double {
-//        return rockets.payload_weights.kg ?? 0
-//    }
-
+    var firstFlight: String? {
+        return rockets.first_flight
+    }
     
+    var country: String? {
+        return rockets.country
+    }
     
-    // force unwrap
+    var costPerLaunch: String? {
+        return String(rockets.cost_per_launch)
+    }
+    //force
+    var firstStageEng: String? {
+        return String(rockets.first_stage.engines!)
+    }
+    
+    var firstStageFuel: String? {
+        return String(rockets.first_stage.fuel_amount_tons!)
+    }
+    
+    // nill !!!!
+    var firstStageBurnTime: String? {
+        if let time = rockets.first_stage.burn_time_sec {
+            return String(time)
+        } else {
+            return "нет данных"
+        }
+    }
+    
+    var secondStageEng: String? {
+        return String(rockets.second_stage.engines!)
+    }
+    
+    var secondStageFuel: String {
+        return String(rockets.second_stage.fuel_amount_tons!)
+    }
+    
+    var secondStageBurnTime: String {
+        if let time = rockets.second_stage.burn_time_sec {
+            return String(time)
+        } else {
+            return "нет данных"
+        }
+    }
     
     
 }

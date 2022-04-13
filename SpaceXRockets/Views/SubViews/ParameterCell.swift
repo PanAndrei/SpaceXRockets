@@ -11,41 +11,17 @@ class ParameterCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    //
-//    var idRow: Int?
-//    var idRow = 0
-    
-    var parameters: [[String]]?
-    
-    var parameter: [String]? {
+    var parameters: RocketViewModel? {
         didSet {
-            if let parameter = parameter {
-                descriptionLabel.text = "\(parameter[0]),  \(parameter[1])"
-                valueLabel.text = parameter[2]
+//            print("parameters did set")
+//            print(parameters?.name)
+            
+            if let name = parameters?.name {
+            
+            valueLabel.text = name
             }
         }
     }
-    
-    
-    // forceunwrap
-//    var rocket: RocketViewModel? {
-//        didSet {
-//            if let rocket = rocket {
-////                descriptionLabel.text = "\(rocket.parameters[idRow!][0]),  \(rocket.parameters[idRow!][1])"
-////                valueLabel.text = rocket.parameters[idRow!][2]
-//
-//               let destext = "\(rocket.parameters[idRow][0]),  \(rocket.parameters[idRow][1])"
-//                let valtext = rocket.parameters[idRow][2]
-//
-//                descriptionLabel.text = "\(rocket.parameters[idRow][0]),  \(rocket.parameters[idRow][1])"
-//                valueLabel.text = rocket.parameters[idRow][2]
-//
-//                print(destext)
-//                print(valtext)
-//            }
-//        }
-//    }
-    //
     
     static var identifier: String = "ParameterCell"
     
@@ -54,13 +30,13 @@ class ParameterCell: UICollectionViewCell {
     
     private lazy var valueLabel: UILabel = {
         let label = UILabel()
-//        label.text = "146"
+        label.text = "146"
         return label
     }()
     
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-//        label.text = "weight, \(measure)"
+        label.text = "weight, \(measure)"
         return label
     }()
     

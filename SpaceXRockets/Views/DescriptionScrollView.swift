@@ -10,20 +10,36 @@ import UIKit
 class DescriptionScrollView: UIView {
     
     // MARK: - Properties
+    
+    var rocket: RocketViewModel? {
+        didSet {
+            if let rocket = rocket {
+                text1.valueLabel.text = rocket.firstFlight
+                text2.valueLabel.text = rocket.country
+                text3.valueLabel.text = rocket.costPerLaunch
+                text4.valueLabel.text = rocket.firstStageEng
+                text5.valueLabel.text = rocket.firstStageFuel
+                text6.valueLabel.text = rocket.firstStageBurnTime
+                text7.valueLabel.text = rocket.secondStageEng
+                text8.valueLabel.text = rocket.secondStageFuel
+                text9.valueLabel.text = rocket.secondStageBurnTime
+            }
+        }
+    }
 
     private lazy var text1: InfolabelsStack = {
-        let stack = InfolabelsStack(descr: "Первый запуск", val: "2222")
+        let stack = InfolabelsStack(descr: "Первый запуск")
         // position to save
         return stack
     }()
     
     private lazy var text2: InfolabelsStack = {
-        let stack = InfolabelsStack(descr: "Страна", val: "2222")
+        let stack = InfolabelsStack(descr: "Страна")
         return stack
     }()
     
     private lazy var text3: InfolabelsStack = {
-        let stack = InfolabelsStack(descr: "Стоимость запуска", val: "2222")
+        let stack = InfolabelsStack(descr: "Стоимость запуска")
         return stack
     }()
     
@@ -34,17 +50,17 @@ class DescriptionScrollView: UIView {
     }()
     
     private lazy var text4: InfolabelsStack = {
-        let stack = InfolabelsStack(descr: "Количество двигателей", val: "2222")
+        let stack = InfolabelsStack(descr: "Количество двигателей")
         return stack
     }()
     
     private lazy var text5: InfolabelsStack = {
-        let stack = InfolabelsStack(descr: "Количество топлива", val: "2222")
+        let stack = InfolabelsStack(descr: "Количество топлива")
         return stack
     }()
     
     private lazy var text6: InfolabelsStack = {
-        let stack = InfolabelsStack(descr: "Время сгорания", val: "2222")
+        let stack = InfolabelsStack(descr: "Время сгорания")
         return stack
     }()
     
@@ -55,17 +71,17 @@ class DescriptionScrollView: UIView {
     }()
     
     private lazy var text7: InfolabelsStack = {
-        let stack = InfolabelsStack(descr: "Количество двигателей", val: "2222")
+        let stack = InfolabelsStack(descr: "Количество двигателей")
         return stack
     }()
     
     private lazy var text8: InfolabelsStack = {
-        let stack = InfolabelsStack(descr: "Количество топлива", val: "2222")
+        let stack = InfolabelsStack(descr: "Количество топлива")
         return stack
     }()
     
     private lazy var text9: InfolabelsStack = {
-        let stack = InfolabelsStack(descr: "Время сгорания", val: "2222")
+        let stack = InfolabelsStack(descr: "Время сгорания")
         return stack
     }()
     

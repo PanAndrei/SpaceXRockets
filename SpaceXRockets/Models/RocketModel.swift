@@ -11,6 +11,8 @@ import Foundation
 //
 struct Rocket: Codable {
     
+    // MARK: - MainImage
+
     //
     let name: String
     let flickr_images: [String]
@@ -19,6 +21,10 @@ struct Rocket: Codable {
     let wikipedia: String
     //
     
+
+    
+    // MARK: - Cell
+
     //
     let height: Height
     let diameter: Diameter
@@ -28,6 +34,14 @@ struct Rocket: Codable {
 
     let id: String
     
+    // MARK: - Description
+    
+    let first_flight: String
+    let country: String
+    let cost_per_launch: Int
+    let first_stage: Stage
+    let second_stage: Stage
+
     
 }
 
@@ -52,3 +66,8 @@ struct Payload: Codable {
     let lb: Double?
 }
 
+struct Stage: Codable {
+    let engines: Int?
+    let fuel_amount_tons: Double?
+    let burn_time_sec: Int?
+}

@@ -14,6 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // MARK: - Saving in memory
+
+        let defaults = UserDefaults.standard
+        defaults.register(defaults: [Settings.heigh.rawValue: 0,
+                                     Settings.diameter.rawValue: 0,
+                                     Settings.weight.rawValue: 0,
+                                     Settings.payload.rawValue: 0])
+        
         return true
     }
 

@@ -12,7 +12,6 @@ class InfolabelsStack: UIStackView {
     // MARK: - Properties
     
     var descriptionT: String?
-    var value: String?
     
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
@@ -20,18 +19,16 @@ class InfolabelsStack: UIStackView {
         return label
     }()
     
-    private lazy var valueLabel: UILabel = {
+     var valueLabel: UILabel = {
         let label = UILabel()
-        label.text = value
         return label
     }()
     
     // MARK: - Lifecycle
 
-    init(descr: String, val: String) {
+    init(descr: String) {
         super.init(frame: .zero)
         self.descriptionT = descr
-        self.value = val
         
         setupView()
     }

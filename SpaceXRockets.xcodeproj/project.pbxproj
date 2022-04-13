@@ -28,6 +28,9 @@
 		B6F89E1D2804A39A00748CE3 /* RocketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89E1C2804A39A00748CE3 /* RocketModel.swift */; };
 		B6F89E1F2804AEFF00748CE3 /* RocketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89E1E2804AEFF00748CE3 /* RocketViewModel.swift */; };
 		B6F89E222804B0D600748CE3 /* RocketsPackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89E212804B0D600748CE3 /* RocketsPackViewModel.swift */; };
+		B6F89E242806D94100748CE3 /* InfoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89E232806D94100748CE3 /* InfoScrollView.swift */; };
+		B6F89E262806D9C500748CE3 /* MainInfoSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89E252806D9C500748CE3 /* MainInfoSubView.swift */; };
+		B6F89E28280701BC00748CE3 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89E27280701BC00748CE3 /* Enums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +57,9 @@
 		B6F89E1C2804A39A00748CE3 /* RocketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketModel.swift; sourceTree = "<group>"; };
 		B6F89E1E2804AEFF00748CE3 /* RocketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketViewModel.swift; sourceTree = "<group>"; };
 		B6F89E212804B0D600748CE3 /* RocketsPackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsPackViewModel.swift; sourceTree = "<group>"; };
+		B6F89E232806D94100748CE3 /* InfoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoScrollView.swift; sourceTree = "<group>"; };
+		B6F89E252806D9C500748CE3 /* MainInfoSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoSubView.swift; sourceTree = "<group>"; };
+		B6F89E27280701BC00748CE3 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +92,9 @@
 		B6F89DE32801FD1100748CE3 /* SpaceXRockets */ = {
 			isa = PBXGroup;
 			children = (
-				B6F89E202804AF3C00748CE3 /* ViewModels */,
 				B6F89E14280471C300748CE3 /* Core */,
+				B6F89E202804AF3C00748CE3 /* ViewModels */,
+				B6F89E1B2804A38C00748CE3 /* Models */,
 				B6F89DF82801FFD600748CE3 /* Views */,
 				B6F89DFD2802155200748CE3 /* Controllers */,
 				B6F89E182804A29700748CE3 /* Services */,
@@ -105,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				B6F89DF92802000D00748CE3 /* MainImageView.swift */,
+				B6F89E232806D94100748CE3 /* InfoScrollView.swift */,
 				B6F89E052802F39300748CE3 /* DescriptionScrollView.swift */,
 				B6F89E0928032EA600748CE3 /* SubViews */,
 			);
@@ -126,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				B6F89DFF280216D800748CE3 /* Extensions.swift */,
+				B6F89E27280701BC00748CE3 /* Enums.swift */,
 			);
 			path = Utilits;
 			sourceTree = "<group>";
@@ -134,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				B6F89E0728031F7800748CE3 /* InfoLabelsStack.swift */,
+				B6F89E252806D9C500748CE3 /* MainInfoSubView.swift */,
 				B6F89E0E28034BB800748CE3 /* SettingsStack.swift */,
 				B6F89E03280226B500748CE3 /* ParameterCell.swift */,
 				B6F89E1028041CD100748CE3 /* LaunchTableViewCell.swift */,
@@ -179,7 +189,6 @@
 			children = (
 				B6F89E1E2804AEFF00748CE3 /* RocketViewModel.swift */,
 				B6F89E212804B0D600748CE3 /* RocketsPackViewModel.swift */,
-				B6F89E1B2804A38C00748CE3 /* Models */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -259,11 +268,13 @@
 				B6F89E00280216D800748CE3 /* Extensions.swift in Sources */,
 				B6F89E0F28034BB800748CE3 /* SettingsStack.swift in Sources */,
 				B6F89DFA2802000D00748CE3 /* MainImageView.swift in Sources */,
+				B6F89E28280701BC00748CE3 /* Enums.swift in Sources */,
 				B6F89E0D28034AD100748CE3 /* SettingsViewController.swift in Sources */,
 				B6F89E222804B0D600748CE3 /* RocketsPackViewModel.swift in Sources */,
 				B6F89E1D2804A39A00748CE3 /* RocketModel.swift in Sources */,
 				B6F89E1F2804AEFF00748CE3 /* RocketViewModel.swift in Sources */,
 				B6F89E1A2804A2C400748CE3 /* NetworlManager.swift in Sources */,
+				B6F89E242806D94100748CE3 /* InfoScrollView.swift in Sources */,
 				B6F89E0B28033D4C00748CE3 /* LauchHistoryViewController.swift in Sources */,
 				B6F89E17280471E800748CE3 /* API.swift in Sources */,
 				B6F89E04280226B500748CE3 /* ParameterCell.swift in Sources */,
@@ -272,6 +283,7 @@
 				B6F89DE52801FD1100748CE3 /* AppDelegate.swift in Sources */,
 				B6F89E13280455B700748CE3 /* PageViewController.swift in Sources */,
 				B6F89E1128041CD200748CE3 /* LaunchTableViewCell.swift in Sources */,
+				B6F89E262806D9C500748CE3 /* MainInfoSubView.swift in Sources */,
 				B6F89DE72801FD1100748CE3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

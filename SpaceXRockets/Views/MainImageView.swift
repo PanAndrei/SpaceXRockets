@@ -16,13 +16,20 @@ class MainImageView: UIView {
             if let rocket = rocket {
                 rocketNameLabel.text = rocket.name
                 
-                NetworkManager.shared.getImage(urlString: rocket.imageURL) { data in
+                if let url = rocket.imageURL {
+                
+                NetworkManager.shared.getImage(urlString: url) { data in
                     guard let data = data else { return }
                     
                     DispatchQueue.main.async {
                         self.imageView.image = UIImage(data: data)
                     }
                 }
+                    
+                } else {
+                    self.imageView.image = UIImage(systemName: "antenna.radiowaves.left.and.right.slash")
+                }
+                    
             }
         }
     }

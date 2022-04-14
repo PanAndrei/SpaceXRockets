@@ -11,13 +11,8 @@ class PageViewController: UIViewController {
 
     // MARK: - Properties
     
-    //
+    // установить програмно
     var pages = 4
-//    var pageTitles = ["0", "1", "2", "3"]
-//    additionalSafeAreaInsets.bottom = CGFloat(12)
-
-    //
-    
     var pageViewController: UIPageViewController?
     var currentIndex: Int = 0
 
@@ -69,7 +64,6 @@ extension PageViewController: UIPageViewControllerDelegate, UIPageViewController
         
         var index = (viewController as! MainViewController).pageIndex
 
-//        if (index == NSNotFound) || (index == self.pageTitles.count - 1) {
         if (index == NSNotFound) || (index == self.pages - 1) {
             return nil
         }
@@ -80,10 +74,8 @@ extension PageViewController: UIPageViewControllerDelegate, UIPageViewController
     }
     
     func viewControllerAtIndex(index: Int) -> MainViewController? {
-//        guard (self.pageTitles.count != 0) || (index < self.pageTitles.count) else { return nil }
         guard index < self.pages else { return nil }
 
-        
         let pageContentViewController = MainViewController()
         pageContentViewController.pageIndex = index
         
@@ -93,13 +85,10 @@ extension PageViewController: UIPageViewControllerDelegate, UIPageViewController
     }
     
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
-//        return self.pageTitles.count
         return self.pages
-
     }
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return 0
     }
-    
 }

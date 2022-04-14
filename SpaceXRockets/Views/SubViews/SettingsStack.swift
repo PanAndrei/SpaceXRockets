@@ -64,5 +64,4 @@ class SettingsStack: UIStackView {
         
         measureSwitcher.centerY(inView: self, rightAnchor: rightAnchor, paddingRight: 16)
     }
-
 }

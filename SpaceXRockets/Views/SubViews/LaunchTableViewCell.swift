@@ -11,11 +11,19 @@ class LaunchTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     
+    var launches: LaunchViewModel? {
+        didSet {
+            if let launches = launches {
+                launchNameLabel.text = launches.name
+            }
+        }
+    }
+    
     // clipstobouds
     
     private lazy var launchNameLabel: UILabel = {
        let label = UILabel()
-        label.text = "name of launch"
+//        label.text = "name of launch"
         return label
     }()
     

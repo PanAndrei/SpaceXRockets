@@ -31,6 +31,9 @@
 		B6F89E242806D94100748CE3 /* InfoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89E232806D94100748CE3 /* InfoScrollView.swift */; };
 		B6F89E262806D9C500748CE3 /* MainInfoSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89E252806D9C500748CE3 /* MainInfoSubView.swift */; };
 		B6F89E28280701BC00748CE3 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89E27280701BC00748CE3 /* Enums.swift */; };
+		B6F89E2A2808234300748CE3 /* LaunchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89E292808234300748CE3 /* LaunchModel.swift */; };
+		B6F89E2C280828FC00748CE3 /* LaunchPackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89E2B280828FC00748CE3 /* LaunchPackViewModel.swift */; };
+		B6F89E2E2808292000748CE3 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F89E2D2808292000748CE3 /* LaunchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		B6F89E232806D94100748CE3 /* InfoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoScrollView.swift; sourceTree = "<group>"; };
 		B6F89E252806D9C500748CE3 /* MainInfoSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoSubView.swift; sourceTree = "<group>"; };
 		B6F89E27280701BC00748CE3 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		B6F89E292808234300748CE3 /* LaunchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModel.swift; sourceTree = "<group>"; };
+		B6F89E2B280828FC00748CE3 /* LaunchPackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPackViewModel.swift; sourceTree = "<group>"; };
+		B6F89E2D2808292000748CE3 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,8 +151,8 @@
 				B6F89E0728031F7800748CE3 /* InfoLabelsStack.swift */,
 				B6F89E252806D9C500748CE3 /* MainInfoSubView.swift */,
 				B6F89E0E28034BB800748CE3 /* SettingsStack.swift */,
-				B6F89E03280226B500748CE3 /* ParameterCell.swift */,
 				B6F89E1028041CD100748CE3 /* LaunchTableViewCell.swift */,
+				B6F89E03280226B500748CE3 /* ParameterCell.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -180,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				B6F89E1C2804A39A00748CE3 /* RocketModel.swift */,
+				B6F89E292808234300748CE3 /* LaunchModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -189,6 +196,8 @@
 			children = (
 				B6F89E1E2804AEFF00748CE3 /* RocketViewModel.swift */,
 				B6F89E212804B0D600748CE3 /* RocketsPackViewModel.swift */,
+				B6F89E2D2808292000748CE3 /* LaunchViewModel.swift */,
+				B6F89E2B280828FC00748CE3 /* LaunchPackViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -264,13 +273,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6F89E2E2808292000748CE3 /* LaunchViewModel.swift in Sources */,
 				B6F89DE92801FD1100748CE3 /* MainViewController.swift in Sources */,
 				B6F89E00280216D800748CE3 /* Extensions.swift in Sources */,
+				B6F89E2A2808234300748CE3 /* LaunchModel.swift in Sources */,
 				B6F89E0F28034BB800748CE3 /* SettingsStack.swift in Sources */,
 				B6F89DFA2802000D00748CE3 /* MainImageView.swift in Sources */,
 				B6F89E28280701BC00748CE3 /* Enums.swift in Sources */,
 				B6F89E0D28034AD100748CE3 /* SettingsViewController.swift in Sources */,
 				B6F89E222804B0D600748CE3 /* RocketsPackViewModel.swift in Sources */,
+				B6F89E2C280828FC00748CE3 /* LaunchPackViewModel.swift in Sources */,
 				B6F89E1D2804A39A00748CE3 /* RocketModel.swift in Sources */,
 				B6F89E1F2804AEFF00748CE3 /* RocketViewModel.swift in Sources */,
 				B6F89E1A2804A2C400748CE3 /* NetworlManager.swift in Sources */,

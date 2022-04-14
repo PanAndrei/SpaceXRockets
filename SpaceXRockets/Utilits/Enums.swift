@@ -17,3 +17,15 @@ enum Settings: String {
 enum Keys: String {
     case notificationUpdade = "reloadView"
 }
+
+// энам для картинок
+
+//энам для цветов
+
+// белый текст времени вверху
+
+// инфо вью и вики
+
+// длина сролов
+
+// errors cathing

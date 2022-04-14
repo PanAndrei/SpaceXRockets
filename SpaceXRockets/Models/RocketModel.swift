@@ -21,18 +21,16 @@ struct Rocket: Codable {
     let wikipedia: String
     //
     
-
-    
     // MARK: - Cell
 
-    //
     let height: Height
     let diameter: Diameter
     let mass: Weight
     let payload_weights: [Payload]
-    //
 
+//
     let id: String
+    //
     
     // MARK: - Description
     
@@ -41,7 +39,6 @@ struct Rocket: Codable {
     let cost_per_launch: Int
     let first_stage: Stage
     let second_stage: Stage
-
     
 }
 

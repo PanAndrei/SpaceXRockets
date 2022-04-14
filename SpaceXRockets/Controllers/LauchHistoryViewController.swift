@@ -7,11 +7,16 @@
 
 import UIKit
 
-//
+// enum
 let ident = "cell"
 //
 
 class LauchHistoryViewController: UITableViewController {
+    
+    // MARK: - Properties
+    
+    var viewModel = LaunchPackViewModel()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,20 +27,32 @@ class LauchHistoryViewController: UITableViewController {
         tableView.estimatedRowHeight = 300
         
 //        setupView()
+        
+        getLaunches()
     }
     
     // MARK: - Helpers
+    
+    func getLaunches() {
+        viewModel.getLaunch { (_) in
+            self.tableView.reloadData()
+            print("data loaded")
+        }
+    }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return viewModel.launchPack.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ident, for: indexPath) as! LaunchTableViewCell
+        let launches = viewModel.launchPack[indexPath.row]
         
-        return cell
+        cell.launches = launches
+        
+        return cell ?? UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

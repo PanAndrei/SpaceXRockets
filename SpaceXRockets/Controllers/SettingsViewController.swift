@@ -32,29 +32,28 @@ class SettingsViewController: UIViewController {
     private lazy var altitudeStack: SettingsStack = {
         let stack = SettingsStack(descr: "Высота", mes1: "m", mes2: "ft")
         stack.measureSwitcher.selectedSegmentIndex = defaults.integer(forKey: Settings.heigh.rawValue)
-        stack.measureSwitcher.addTarget(self, action: #selector(changeAlt), for: .valueChanged)
-        // addaction
+        stack.measureSwitcher.addTarget(self, action: #selector(saveSettings), for: .valueChanged)
         return stack
     }()
     
     private lazy var diameterStack: SettingsStack = {
         let stack = SettingsStack(descr: "Диаметр", mes1: "m", mes2: "ft")
         stack.measureSwitcher.selectedSegmentIndex = defaults.integer(forKey: Settings.diameter.rawValue)
-        stack.measureSwitcher.addTarget(self, action: #selector(changeDiam), for: .valueChanged)
+        stack.measureSwitcher.addTarget(self, action: #selector(saveSettings), for: .valueChanged)
         return stack
     }()
     
     private lazy var weightStack: SettingsStack = {
         let stack = SettingsStack(descr: "Масса", mes1: "kg", mes2: "lb")
         stack.measureSwitcher.selectedSegmentIndex = defaults.integer(forKey: Settings.weight.rawValue)
-        stack.measureSwitcher.addTarget(self, action: #selector(changeWeig), for: .valueChanged)
+        stack.measureSwitcher.addTarget(self, action: #selector(saveSettings), for: .valueChanged)
         return stack
     }()
     
     private lazy var payloadStack: SettingsStack = {
         let stack = SettingsStack(descr: "Полезная нагрузка", mes1: "kg", mes2: "lb")
         stack.measureSwitcher.selectedSegmentIndex = defaults.integer(forKey: Settings.payload.rawValue)
-        stack.measureSwitcher.addTarget(self, action: #selector(changePay), for: .valueChanged)
+        stack.measureSwitcher.addTarget(self, action: #selector(saveSettings), for: .valueChanged)
         return stack
     }()
     
@@ -72,19 +71,6 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         
         setupView()
-        
-//        print("xxxxxxxx")
-//        print(defaults.integer(forKey: Settings.heigh.rawValue))
-//        print(defaults.integer(forKey: Settings.diameter.rawValue))
-//        print(defaults.integer(forKey: Settings.weight.rawValue))
-//        print(defaults.integer(forKey: Settings.payload.rawValue))
-//        print("-------")
-//        print(altitudeStack.measureSwitcher.selectedSegmentIndex)
-//        print(diameterStack.measureSwitcher.selectedSegmentIndex)
-//        print(weightStack.measureSwitcher.selectedSegmentIndex)
-//        print(payloadStack.measureSwitcher.selectedSegmentIndex)
-//        print("xxxxxxxx")
-        
     }
     
     // MARK: - Helpers
@@ -120,46 +106,41 @@ class SettingsViewController: UIViewController {
     @objc func goBack() {
         
         self.dismiss(animated: true, completion: nil)
-        
-        print("xxxxxxxx")
-        print(defaults.integer(forKey: Settings.heigh.rawValue))
-        print(defaults.integer(forKey: Settings.diameter.rawValue))
-        print(defaults.integer(forKey: Settings.weight.rawValue))
-        print(defaults.integer(forKey: Settings.payload.rawValue))
-        print("-------")
-        print(altitudeStack.measureSwitcher.selectedSegmentIndex)
-        print(diameterStack.measureSwitcher.selectedSegmentIndex)
-        print(weightStack.measureSwitcher.selectedSegmentIndex)
-        print(payloadStack.measureSwitcher.selectedSegmentIndex)
-        print("xxxxxxxx")
-        
     }
-    
-    // how to improve to 1
-    
-    @objc func changeAlt() {
+        
+    @objc func saveSettings() {
         defaults.set(altitudeStack.measureSwitcher.selectedSegmentIndex, forKey: Settings.heigh.rawValue)
-        
-        NotificationCenter.default.post(name: NSNotification.Name(Keys.notificationUpdade.rawValue), object: nil)
-    }
-    
-    @objc func changeDiam() {
         defaults.set(diameterStack.measureSwitcher.selectedSegmentIndex, forKey: Settings.diameter.rawValue)
-        
-        NotificationCenter.default.post(name: NSNotification.Name(Keys.notificationUpdade.rawValue), object: nil)
-    }
-    
-    @objc func changeWeig() {
         defaults.set(weightStack.measureSwitcher.selectedSegmentIndex, forKey: Settings.weight.rawValue)
-        
-        NotificationCenter.default.post(name: NSNotification.Name(Keys.notificationUpdade.rawValue), object: nil)
+        defaults.set(payloadStack.measureSwitcher.selectedSegmentIndex, forKey: Settings.payload.rawValue)
 
+        NotificationCenter.default.post(name: NSNotification.Name(Keys.notificationUpdade.rawValue), object: nil)
     }
     
-    @objc func changePay() {
-        defaults.set(payloadStack.measureSwitcher.selectedSegmentIndex, forKey: Settings.payload.rawValue)
-        
-        NotificationCenter.default.post(name: NSNotification.Name(Keys.notificationUpdade.rawValue), object: nil)
-
-    }
+//    @objc func changeAlt() {
+//        defaults.set(altitudeStack.measureSwitcher.selectedSegmentIndex, forKey: Settings.heigh.rawValue)
+//
+//        NotificationCenter.default.post(name: NSNotification.Name(Keys.notificationUpdade.rawValue), object: nil)
+//    }
+//
+//    @objc func changeDiam() {
+//        defaults.set(diameterStack.measureSwitcher.selectedSegmentIndex, forKey: Settings.diameter.rawValue)
+//
+//        NotificationCenter.default.post(name: NSNotification.Name(Keys.notificationUpdade.rawValue), object: nil)
+//    }
+//
+//    @objc func changeWeig() {
+//        defaults.set(weightStack.measureSwitcher.selectedSegmentIndex, forKey: Settings.weight.rawValue)
+//
+//        NotificationCenter.default.post(name: NSNotification.Name(Keys.notificationUpdade.rawValue), object: nil)
+//
+//    }
+//
+//    @objc func changePay() {
+//        defaults.set(payloadStack.measureSwitcher.selectedSegmentIndex, forKey: Settings.payload.rawValue)
+//
+//        NotificationCenter.default.post(name: NSNotification.Name(Keys.notificationUpdade.rawValue), object: nil)
+//
+//    }
 }
+

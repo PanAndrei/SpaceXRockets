@@ -11,7 +11,6 @@ class InfoScrollView: UIView {
     
     // MARK: - Properties
     
-    // in function
     var rocket: RocketViewModel? {
         didSet {
             updateValues()
@@ -54,12 +53,10 @@ class InfoScrollView: UIView {
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateView),
                                                name: NSNotification.Name(Keys.notificationUpdade.rawValue), object: nil)
-
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-        
     }
     
     // MARK: - Helpers

@@ -7,6 +7,7 @@
 
 import Foundation
 
+// повтор
 let defaults = UserDefaults.standard
 
 struct RocketViewModel {
@@ -31,6 +32,7 @@ struct RocketViewModel {
     // MARK: - Cell
 
     // хитрая строка с разным шрифтом
+    // формат вывода чисел
     
     var heighValue: [String]? {
         
@@ -71,9 +73,9 @@ struct RocketViewModel {
         
         switch defaults.integer(forKey: Settings.payload.rawValue) {
         case 0:
-            return [String(payload.kg!), "масса, kg"]
+            return [String(payload.kg!), "полезная масса, kg"]
         default:
-            return [String(payload.lb!), "масса, lb"]
+            return [String(payload.lb!), "полезная масса, lb"]
         }
         
 //        return [String(payload.kg!), "масса, kg"]
@@ -125,7 +127,6 @@ struct RocketViewModel {
             return "нет данных"
         }
     }
-    
     
 }
 

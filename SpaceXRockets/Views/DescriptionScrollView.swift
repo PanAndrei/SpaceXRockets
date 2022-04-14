@@ -13,6 +13,7 @@ class DescriptionScrollView: UIView {
     
     var rocket: RocketViewModel? {
         didSet {
+            // в функцию
             if let rocket = rocket {
                 text1.valueLabel.text = rocket.firstFlight
                 text2.valueLabel.text = rocket.country
@@ -29,7 +30,6 @@ class DescriptionScrollView: UIView {
 
     private lazy var text1: InfolabelsStack = {
         let stack = InfolabelsStack(descr: "Первый запуск")
-        // position to save
         return stack
     }()
     
@@ -152,5 +152,4 @@ class DescriptionScrollView: UIView {
         showLaunchesButton.centerX(inView: scrollView, topAnchor: text9.bottomAnchor, paddingTop: 50)
         showLaunchesButton.setDimensions(height: 50, width: 100)
     }
-    
 }

@@ -67,4 +67,30 @@ class NetworkManager {
         }
     }
     
+    func getLaunches(completion: @escaping([Launch]?) -> Void) {
+        let url = API.launchec.url
+                
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard error == nil else {
+                print("error \(error?.localizedDescription) in URLSession ")
+                completion(nil)
+                return
+            }
+            guard let data = data else {
+                print("error \(error)")
+                completion(nil)
+                return
+            }
+            
+            do {
+                let launchPack = try? JSONDecoder().decode([Launch].self, from: data)
+                completion(launchPack)
+                print("comletion network")
+            } catch let error {
+                print("error \(error) decoding data")
+                completion(nil)
+            }
+        }.resume()
+    }
+    
 }

@@ -35,6 +35,8 @@ class DescriptionScrollView: UIView {
     private lazy var textFS: UILabel = {
         let label = UILabel()
         label.text = "ПЕРВАЯ СТУПЕНЬ"
+        label.textColor = .white
+        label.font = .boldSystemFont(ofSize: 20)
         return label
     }()
     
@@ -56,6 +58,8 @@ class DescriptionScrollView: UIView {
     private lazy var textSS: UILabel = {
         let label = UILabel()
         label.text = "ВТОРАЯ СТУПЕНЬ"
+        label.textColor = .white
+        label.font = .boldSystemFont(ofSize: 20)
         return label
     }()
     
@@ -77,15 +81,16 @@ class DescriptionScrollView: UIView {
 //    private lazy var showLaunchesButton: UIButton = {
      var showLaunchesButton: UIButton = {
         let button = UIButton()
-        button.setTitle("show lauches", for: .normal)
+        button.setTitle("Показать запуски", for: .normal)
          button.backgroundColor = UIColor.cellBackgroundColor
+         button.layer.cornerRadius = 10
         return button
     }()
     
     let scrollView: UIScrollView = {
         let scrollV = UIScrollView()
         scrollV.backgroundColor = .black
-        scrollV.contentSize = CGSize(width: 40, height: 1300)
+        scrollV.contentSize = CGSize(width: 40, height: 700)
         return scrollV
     }()
     
@@ -126,19 +131,29 @@ class DescriptionScrollView: UIView {
         scrollView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
         
         text1.anchor(top: scrollView.topAnchor, left: leftAnchor, right: rightAnchor, height: 60)
-        text2.anchor(top: text1.bottomAnchor, left: leftAnchor, right: rightAnchor, padddingTop: 50, height: 60)
-        text3.anchor(top: text2.bottomAnchor, left: leftAnchor, right: rightAnchor, padddingTop: 50, height: 60)
-        textFS.anchor(top: text3.bottomAnchor, left: leftAnchor, right: rightAnchor, padddingTop: 50, height: 60)
-        text4.anchor(top: textFS.bottomAnchor, left: leftAnchor, right: rightAnchor, padddingTop: 50, height: 60)
-        text5.anchor(top: text4.bottomAnchor, left: leftAnchor, right: rightAnchor, padddingTop: 50, height: 60)
-        text6.anchor(top: text5.bottomAnchor, left: leftAnchor, right: rightAnchor, padddingTop: 50, height: 60)
-        textSS.anchor(top: text6.bottomAnchor, left: leftAnchor, right: rightAnchor, padddingTop: 50, height: 60)
-        text7.anchor(top: textSS.bottomAnchor, left: leftAnchor, right: rightAnchor, padddingTop: 50, height: 60)
-        text8.anchor(top: text7.bottomAnchor, left: leftAnchor, right: rightAnchor, padddingTop: 50, height: 60)
-        text9.anchor(top: text8.bottomAnchor, left: leftAnchor, right: rightAnchor, padddingTop: 50, height: 60)
+        text2.anchor(top: text1.bottomAnchor, left: leftAnchor, right: rightAnchor,
+                     padddingTop: 10, height: 40)
+        text3.anchor(top: text2.bottomAnchor, left: leftAnchor, right: rightAnchor,
+                     padddingTop: 10, height: 40)
+        textFS.anchor(top: text3.bottomAnchor, left: leftAnchor, right: rightAnchor,
+                      padddingTop: 10,paddingLeft: 20 ,height: 40)
+        text4.anchor(top: textFS.bottomAnchor, left: leftAnchor, right: rightAnchor,
+                     padddingTop: 20, height: 40)
+        text5.anchor(top: text4.bottomAnchor, left: leftAnchor, right: rightAnchor,
+                     padddingTop: 10, height: 40)
+        text6.anchor(top: text5.bottomAnchor, left: leftAnchor, right: rightAnchor,
+                     padddingTop: 10, height: 40)
+        textSS.anchor(top: text6.bottomAnchor, left: leftAnchor, right: rightAnchor,
+                      padddingTop: 10,paddingLeft: 20 ,height: 40)
+        text7.anchor(top: textSS.bottomAnchor, left: leftAnchor, right: rightAnchor,
+                     padddingTop: 20, height: 40)
+        text8.anchor(top: text7.bottomAnchor, left: leftAnchor, right: rightAnchor,
+                     padddingTop: 10, height: 40)
+        text9.anchor(top: text8.bottomAnchor, left: leftAnchor, right: rightAnchor,
+                     padddingTop: 10, height: 40)
         
         showLaunchesButton.centerX(inView: scrollView, topAnchor: text9.bottomAnchor, paddingTop: 50)
-        showLaunchesButton.setDimensions(height: 50, width: 100)
+        showLaunchesButton.setDimensions(height: 50, width: 200)
     }
     
     func updateValue() {
@@ -146,12 +161,12 @@ class DescriptionScrollView: UIView {
             text1.valueLabel.text = rocket.firstFlight
             text2.valueLabel.text = rocket.country
             text3.valueLabel.text = rocket.costPerLaunch
-            text4.valueLabel.text = rocket.firstStageEng
-            text5.valueLabel.text = rocket.firstStageFuel
-            text6.valueLabel.text = rocket.firstStageBurnTime
-            text7.valueLabel.text = rocket.secondStageEng
-            text8.valueLabel.text = rocket.secondStageFuel
-            text9.valueLabel.text = rocket.secondStageBurnTime
+            text4.valueLabel.attributedText = rocket.firstStageEng
+            text5.valueLabel.attributedText = rocket.firstStageFuel
+            text6.valueLabel.attributedText = rocket.firstStageBurnTime
+            text7.valueLabel.attributedText = rocket.secondStageEng
+            text8.valueLabel.attributedText = rocket.secondStageFuel
+            text9.valueLabel.attributedText = rocket.secondStageBurnTime
         }
     }
 }

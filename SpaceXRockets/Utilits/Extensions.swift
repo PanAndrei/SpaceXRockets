@@ -7,10 +7,45 @@
 
 import UIKit
 
-extension UINavigationController {
-   open override var preferredStatusBarStyle: UIStatusBarStyle {
-      return topViewController?.preferredStatusBarStyle ?? .default
-   }
+extension NSAttributedString {
+    class func setTwoColorsString(str1: String, str2: String = "      ") -> NSMutableAttributedString {
+        let atrStr1 = NSMutableAttributedString(string: str1, attributes: [
+            NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 18),
+            NSAttributedString.Key.foregroundColor : UIColor.white
+        ])
+        let atrStr2 = NSMutableAttributedString(string: (" " + str2), attributes: [
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16),
+            NSAttributedString.Key.foregroundColor : UIColor.lightGray
+        ])
+        atrStr1.append(atrStr2)
+        return atrStr1
+    }
+}
+
+extension Formatter {
+    static let withSeparator: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.groupingSeparator = " "
+        return formatter
+    }()
+}
+
+extension Numeric {
+    var formattedWithSeparator: String { Formatter.withSeparator.string(for: self) ?? "" }
+}
+
+extension String {
+    func getFormattedDateString(oldFormat: String, newFormat: String) -> String {
+        let stringDateFormatter = DateFormatter()
+        stringDateFormatter.dateFormat = oldFormat
+        let date = stringDateFormatter.date(from: self)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = newFormat
+        dateFormatter.timeZone = TimeZone.current
+        return dateFormatter.string(from: date ?? Date())
+    }
 }
 
 extension UIColor {
@@ -63,12 +98,17 @@ extension UIView {
         widthAnchor.constraint(equalToConstant: width).isActive = true
     }
     
-    func centerX(inView view: UIView, topAnchor: NSLayoutYAxisAnchor? = nil, paddingTop: CGFloat = 0) {
+    func centerX(inView view: UIView, topAnchor: NSLayoutYAxisAnchor? = nil, bottomAnchor: NSLayoutYAxisAnchor? = nil,
+                 paddingTop: CGFloat = 0, paddingBottom: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
         centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         if let top = topAnchor {
             anchor(top: topAnchor, padddingTop: paddingTop)
+        }
+        
+        if let bottom = bottomAnchor {
+            anchor(bottom: bottomAnchor, paddingBottom: paddingBottom)
         }
     }
     

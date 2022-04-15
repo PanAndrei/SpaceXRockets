@@ -23,9 +23,9 @@ class LauchHistoryViewController: UITableViewController {
     var rocket = "5e9d0d95eda69973a809d1ec"
     //
 
-        override var preferredStatusBarStyle: UIStatusBarStyle {
-            return .lightContent
-        }
+//        override var preferredStatusBarStyle: UIStatusBarStyle {
+//            return .lightContent
+//        }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,12 +47,6 @@ class LauchHistoryViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-    
-//    func getLaunches() {
-//        viewModel.getLaunch { (_) in
-//            self.tableView.reloadData()
-//        }
-//    }
 
     // MARK: - Table view data source
 
@@ -70,7 +64,7 @@ class LauchHistoryViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let verticalPadding: CGFloat = 16
+        let verticalPadding: CGFloat = 8
         let horizontalPadding: CGFloat = 16
 
             let maskLayer = CALayer()

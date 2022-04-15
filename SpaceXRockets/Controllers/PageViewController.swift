@@ -16,20 +16,13 @@ class PageViewController: UIViewController {
     var pageViewController: UIPageViewController?
     var currentIndex: Int = 0
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-
     // MARK: - Lifecycle
     
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        return .lightContent
-//    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupPageVC()
+        setupNavigationVC()
     }
     
     // MARK: - Helpers
@@ -47,6 +40,13 @@ class PageViewController: UIViewController {
         addChild(pageViewController!)
         view.addSubview(pageViewController!.view)
         pageViewController?.didMove(toParent: self)
+    }
+    
+    func setupNavigationVC() {
+        self.navigationController?.navigationBar.barStyle = .black
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
     }
 }
 

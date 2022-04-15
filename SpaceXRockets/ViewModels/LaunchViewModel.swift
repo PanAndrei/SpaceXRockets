@@ -16,7 +16,7 @@ struct LaunchViewModel {
     }
     
     var date: String {
-        return launches.date_utc
+        return launches.date_utc.getFormattedDateString(oldFormat: "yyyy-MM-dd'T'HH:mm:ss.sssZ", newFormat: "d MMMM, yyyy")
     }
     
     // force unwrap

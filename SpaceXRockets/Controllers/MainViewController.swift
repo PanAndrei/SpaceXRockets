@@ -13,9 +13,9 @@ class MainViewController: UIViewController {
     
     // MARK: - Properties
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .lightContent
+//    }
     
     var pageIndex = 0
     var viewModel = RocketsPackViewModel()
@@ -59,6 +59,8 @@ class MainViewController: UIViewController {
     }
     
     func setupView() {
+//        self.navigationController?.navigationBar.tintColor = .white
+        
         view.backgroundColor = .black
         
         view.addSubview(mainImageView)

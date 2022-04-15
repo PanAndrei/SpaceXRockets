@@ -13,11 +13,15 @@ class MainInfoSubView: UIView {
 
     var valueLabelM: UILabel = {
         let label = UILabel()
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
     }()
     
     var descriptionLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .lightGray
+        label.font.withSize(16)
         return label
     }()
     
@@ -49,6 +53,6 @@ class MainInfoSubView: UIView {
         setDimensions(height: 80, width: 160)
         
         valueLabelM.centerX(inView: self, topAnchor: topAnchor, paddingTop: 16)
-        descriptionLabel.centerX(inView: self, topAnchor: valueLabelM.bottomAnchor, paddingTop: 16)
+        descriptionLabel.centerX(inView: self, bottomAnchor: bottomAnchor, paddingBottom: 16)
     }
 }

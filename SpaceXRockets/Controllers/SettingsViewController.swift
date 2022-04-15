@@ -10,16 +10,13 @@ import UIKit
 class SettingsViewController: UIViewController {
     
     // MARK: - Properties
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
+        
     let defaults = UserDefaults.standard
     
     private let viewNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Настройки"
+        label.textColor = .white
         return label
     }()
     
@@ -96,7 +93,7 @@ class SettingsViewController: UIViewController {
         buttonBack.anchor(top: viewNameLabel.topAnchor, right: view.rightAnchor, paddingRight: 16)
         
         mainStack.anchor(top: viewNameLabel.topAnchor, left: view.leftAnchor, right: view.rightAnchor,
-                         padddingTop: 200, height: 200)
+                         padddingTop: 75, height: 200)
         
         altitudeStack.anchor(left: mainStack.leftAnchor, right: mainStack.rightAnchor)
         diameterStack.anchor(left: mainStack.leftAnchor, right: mainStack.rightAnchor)

@@ -11,17 +11,26 @@ import UIKit
 let ident = "cell"
 //
 
+// show 0 launch message
+
 class LauchHistoryViewController: UITableViewController {
     
     // MARK: - Properties
     
     var viewModel = LaunchPackViewModel()
+    
+    //
+    var rocket = "5e9d0d95eda69973a809d1ec"
+    //
 
+        override var preferredStatusBarStyle: UIStatusBarStyle {
+            return .lightContent
+        }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .blue
+        view.backgroundColor = .black
         
         tableView.register(LaunchTableViewCell.self, forCellReuseIdentifier: ident)
         tableView.estimatedRowHeight = 300
@@ -34,11 +43,16 @@ class LauchHistoryViewController: UITableViewController {
     // MARK: - Helpers
     
     func getLaunches() {
-        viewModel.getLaunch { (_) in
+        viewModel.getLaunch(rocket) { (_) in
             self.tableView.reloadData()
-            print("data loaded")
         }
     }
+    
+//    func getLaunches() {
+//        viewModel.getLaunch { (_) in
+//            self.tableView.reloadData()
+//        }
+//    }
 
     // MARK: - Table view data source
 

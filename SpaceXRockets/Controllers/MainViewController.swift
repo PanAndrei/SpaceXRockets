@@ -13,6 +13,10 @@ class MainViewController: UIViewController {
     
     // MARK: - Properties
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     var pageIndex = 0
     var viewModel = RocketsPackViewModel()
     
@@ -55,7 +59,7 @@ class MainViewController: UIViewController {
     }
     
     func setupView() {
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         
         view.addSubview(mainImageView)
         view.addSubview(infoScrollView)
@@ -68,7 +72,8 @@ class MainViewController: UIViewController {
         mainImageView.anchor(top: view.topAnchor, left: view.leftAnchor,right: view.rightAnchor,
                              height: 350)
         
-        infoScrollView.anchor(top: mainImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 100)
+        infoScrollView.anchor(top: mainImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor,
+                              height: 100)
         
         descriptionScrollView.anchor(top: infoScrollView.bottomAnchor, left: view.leftAnchor,
                                      bottom: view.bottomAnchor, right: view.rightAnchor)
@@ -85,7 +90,14 @@ class MainViewController: UIViewController {
     }
     
     @objc func goToLaunch() {
-        navigationController?.pushViewController(LauchHistoryViewController(), animated: true)
+        //
+        let vc = LauchHistoryViewController()
+        // force
+        vc.rocket = viewModel.rocketPack[self.pageIndex].id!
+        
+        //
+        navigationController?.pushViewController(vc, animated: true)
+//        navigationController?.pushViewController(LauchHistoryViewController(), animated: true)
+
     }
-    
 }

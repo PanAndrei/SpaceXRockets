@@ -7,6 +7,21 @@
 
 import UIKit
 
+extension UINavigationController {
+   open override var preferredStatusBarStyle: UIStatusBarStyle {
+      return topViewController?.preferredStatusBarStyle ?? .default
+   }
+}
+
+extension UIColor {
+    
+    static func rgb(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
+        return UIColor.init(red: red/255, green: green/255, blue: blue/255, alpha: 1)
+    }
+    
+    static let cellBackgroundColor = UIColor.rgb(red: 33, green: 33, blue: 33)
+}
+
 extension UIView {
     
     func anchor(top: NSLayoutYAxisAnchor? =  nil,

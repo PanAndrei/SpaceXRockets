@@ -62,7 +62,7 @@ class InfoScrollView: UIView {
     // MARK: - Helpers
     
     func setupView() {
-        backgroundColor = .yellow
+        backgroundColor = .black
         
         addSubview(scrollView)
         

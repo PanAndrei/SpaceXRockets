@@ -67,7 +67,7 @@ class NetworkManager {
         }
     }
     
-    func getLaunches(completion: @escaping([Launch]?) -> Void) {
+    func getLaunches(_ rocket: String, completion: @escaping([Launch]?) -> Void) {
         let url = API.launchec.url
                 
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -84,8 +84,7 @@ class NetworkManager {
             
             do {
                 let launchPack = try? JSONDecoder().decode([Launch].self, from: data)
-                completion(launchPack)
-                print("comletion network")
+                completion(launchPack?.filter{ $0.rocket == rocket })
             } catch let error {
                 print("error \(error) decoding data")
                 completion(nil)

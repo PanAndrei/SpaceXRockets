@@ -36,7 +36,7 @@ class MainInfoSubView: UIView {
     // MARK: - Heplers
 
     func setupView() {
-        backgroundColor = .darkGray
+        backgroundColor = UIColor.cellBackgroundColor
         layer.cornerRadius = 20
         
         addSubview(valueLabelM)

@@ -15,6 +15,8 @@ class LaunchTableViewCell: UITableViewCell {
         didSet {
             if let launches = launches {
                 launchNameLabel.text = launches.name
+                launchDateLabel.text = launches.date
+                launchImage.image = UIImage(named: launches.picture)
             }
         }
     }
@@ -22,25 +24,24 @@ class LaunchTableViewCell: UITableViewCell {
     // clipstobouds
     
     private lazy var launchNameLabel: UILabel = {
-       let label = UILabel()
-//        label.text = "name of launch"
+        let label = UILabel()
+        label.textColor = .white
         return label
     }()
     
     private lazy var launchDateLabel: UILabel = {
-       let label = UILabel()
-        label.text = "date of launch"
+        let label = UILabel()
+        label.textColor = .lightGray
         return label
     }()
-
+    
     private lazy var launchImage: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(systemName: "airplane.departure")
         return view
     }()
-
+    
     // MARK: - Lifecycle
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
@@ -56,10 +57,10 @@ class LaunchTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     func setupView() {
-        backgroundColor = .purple
-//        layer.cornerRadius = 10
+        backgroundColor = UIColor.cellBackgroundColor
+        //        layer.cornerRadius = 10
         
         addSubview(launchNameLabel)
         addSubview(launchDateLabel)
@@ -70,7 +71,8 @@ class LaunchTableViewCell: UITableViewCell {
     
     func setupConstraints() {
         launchNameLabel.anchor(top: topAnchor, left: leftAnchor, padddingTop: 18, paddingLeft: 18)
-        launchDateLabel.anchor(top: launchNameLabel.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, padddingTop: 18, paddingLeft: 18, paddingBottom: 18)
+        launchDateLabel.anchor(top: launchNameLabel.bottomAnchor, left: leftAnchor, bottom: bottomAnchor,
+                               padddingTop: 18, paddingLeft: 18, paddingBottom: 18)
         launchImage.centerY(inView: self, rightAnchor: rightAnchor, paddingRight: 32)
     }
 }

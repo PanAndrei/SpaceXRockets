@@ -6,20 +6,17 @@
 //
 
 import Foundation
-//
-// use keys
-//
+
 struct Rocket: Codable {
+    
+    let id: String
+    let description: String
+    let wikipedia: String
     
     // MARK: - MainImage
 
-    //
     let name: String
-    let flickr_images: [String]
-    // for additional
-    let description: String
-    let wikipedia: String
-    //
+    let flickr_images: [String]    
     
     // MARK: - Cell
 
@@ -27,10 +24,6 @@ struct Rocket: Codable {
     let diameter: Diameter
     let mass: Weight
     let payload_weights: [Payload]
-
-//
-    let id: String
-    //
     
     // MARK: - Description
     
@@ -39,7 +32,6 @@ struct Rocket: Codable {
     let cost_per_launch: Int
     let first_stage: Stage
     let second_stage: Stage
-    
 }
 
 struct Height: Codable {

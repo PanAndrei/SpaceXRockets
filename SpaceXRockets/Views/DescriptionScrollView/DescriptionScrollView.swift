@@ -13,18 +13,7 @@ class DescriptionScrollView: UIView {
     
     var rocket: RocketViewModel? {
         didSet {
-            // в функцию
-            if let rocket = rocket {
-                text1.valueLabel.text = rocket.firstFlight
-                text2.valueLabel.text = rocket.country
-                text3.valueLabel.text = rocket.costPerLaunch
-                text4.valueLabel.text = rocket.firstStageEng
-                text5.valueLabel.text = rocket.firstStageFuel
-                text6.valueLabel.text = rocket.firstStageBurnTime
-                text7.valueLabel.text = rocket.secondStageEng
-                text8.valueLabel.text = rocket.secondStageFuel
-                text9.valueLabel.text = rocket.secondStageBurnTime
-            }
+            updateValue()
         }
     }
 
@@ -89,13 +78,13 @@ class DescriptionScrollView: UIView {
      var showLaunchesButton: UIButton = {
         let button = UIButton()
         button.setTitle("show lauches", for: .normal)
-        button.backgroundColor = .red
+         button.backgroundColor = UIColor.cellBackgroundColor
         return button
     }()
     
     let scrollView: UIScrollView = {
         let scrollV = UIScrollView()
-        scrollV.backgroundColor = .cyan
+        scrollV.backgroundColor = .black
         scrollV.contentSize = CGSize(width: 40, height: 1300)
         return scrollV
     }()
@@ -128,7 +117,6 @@ class DescriptionScrollView: UIView {
         scrollView.addSubview(text7)
         scrollView.addSubview(text8)
         scrollView.addSubview(text9)
-        
         scrollView.addSubview(showLaunchesButton)
         
         setupConstraints()
@@ -151,5 +139,19 @@ class DescriptionScrollView: UIView {
         
         showLaunchesButton.centerX(inView: scrollView, topAnchor: text9.bottomAnchor, paddingTop: 50)
         showLaunchesButton.setDimensions(height: 50, width: 100)
+    }
+    
+    func updateValue() {
+        if let rocket = rocket {
+            text1.valueLabel.text = rocket.firstFlight
+            text2.valueLabel.text = rocket.country
+            text3.valueLabel.text = rocket.costPerLaunch
+            text4.valueLabel.text = rocket.firstStageEng
+            text5.valueLabel.text = rocket.firstStageFuel
+            text6.valueLabel.text = rocket.firstStageBurnTime
+            text7.valueLabel.text = rocket.secondStageEng
+            text8.valueLabel.text = rocket.secondStageFuel
+            text9.valueLabel.text = rocket.secondStageBurnTime
+        }
     }
 }

@@ -13,25 +13,7 @@ class MainImageView: UIView {
     
     var rocket: RocketViewModel? {
         didSet {
-            // в функцию
-            if let rocket = rocket {
-                rocketNameLabel.text = rocket.name
-                
-                if let url = rocket.imageURL {
-                
-                NetworkManager.shared.getImage(urlString: url) { data in
-                    guard let data = data else { return }
-                    
-                    DispatchQueue.main.async {
-                        self.imageView.image = UIImage(data: data)
-                    }
-                }
-                    
-                } else {
-                    self.imageView.image = UIImage(systemName: "antenna.radiowaves.left.and.right.slash")
-                }
-                    
-            }
+            updateValues()
         }
     }
 
@@ -41,18 +23,16 @@ class MainImageView: UIView {
         return view
     }()
     
-    //    private lazy var rocketNameLabel: UILabel = {
     private lazy var rocketNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 25)
-//        label.text = "---"
         label.textColor = .white
         return label
     }()
     
     var settingsButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "seal"), for: .normal)
+        button.setImage(UIImage(named: Pictures.settings.rawValue), for: .normal)
         return button
     }()
     
@@ -96,5 +76,23 @@ class MainImageView: UIView {
         
         rocketNameLabel.centerY(inView: infoSubView, leftAncor: leftAnchor, paddingLeft: 24)
         settingsButton.centerY(inView: infoSubView, rightAnchor: rightAnchor, paddingRight: 24)
+    }
+    
+    func updateValues() {
+        if let rocket = rocket {
+            rocketNameLabel.text = rocket.name
+            
+            if let url = rocket.imageURL {
+                NetworkManager.shared.getImage(urlString: url) { data in
+                    guard let data = data else { return }
+                    
+                    DispatchQueue.main.async {
+                        self.imageView.image = UIImage(data: data)
+                    }
+                }
+            } else {
+                self.imageView.image = UIImage(systemName: "antenna.radiowaves.left.and.right.slash")
+            }
+        }
     }
 }

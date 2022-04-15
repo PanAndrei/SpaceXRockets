@@ -18,6 +18,14 @@ enum Keys: String {
     case notificationUpdade = "reloadView"
 }
 
+enum Pictures: String {
+    case success = "image1"
+    case failure = "image2"
+    case settings = "image3"
+}
+
+
+
 // энам для картинок
 
 //энам для цветов

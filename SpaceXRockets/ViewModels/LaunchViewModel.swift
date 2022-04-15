@@ -14,4 +14,13 @@ struct LaunchViewModel {
     var name: String {
         return launches.name
     }
+    
+    var date: String {
+        return launches.date_utc
+    }
+    
+    // force unwrap
+    var picture: String {
+        return launches.success! ? Pictures.success.rawValue : Pictures.failure.rawValue
+    }
 }

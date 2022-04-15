@@ -15,8 +15,16 @@ class PageViewController: UIViewController {
     var pages = 4
     var pageViewController: UIPageViewController?
     var currentIndex: Int = 0
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     // MARK: - Lifecycle
+    
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .lightContent
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +48,6 @@ class PageViewController: UIViewController {
         view.addSubview(pageViewController!.view)
         pageViewController?.didMove(toParent: self)
     }
-
 }
 
 // MARK: - UIPageViewControllerDelegate, UIPageViewControllerDataSource

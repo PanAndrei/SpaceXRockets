@@ -16,11 +16,15 @@ class InfolabelsStack: UIStackView {
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = descriptionT
+        label.textColor = .lightGray
+        label.font.withSize(10)
         return label
     }()
     
      var valueLabel: UILabel = {
         let label = UILabel()
+         label.textColor = .white
+         label.font.withSize(12)
         return label
     }()
     
@@ -40,7 +44,7 @@ class InfolabelsStack: UIStackView {
     // MARK: - Helpers
     
     func setupView() {
-        backgroundColor = .green
+        backgroundColor = .black
         
         addSubview(descriptionLabel)
         addSubview(valueLabel)
@@ -52,5 +56,4 @@ class InfolabelsStack: UIStackView {
         descriptionLabel.centerY(inView: self, leftAncor: leftAnchor, paddingLeft: 16)
         valueLabel.centerY(inView: self, rightAnchor: rightAnchor, paddingRight: 16)
     }
-
 }

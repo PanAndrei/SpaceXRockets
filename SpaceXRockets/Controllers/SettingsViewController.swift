@@ -11,6 +11,10 @@ class SettingsViewController: UIViewController {
     
     // MARK: - Properties
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     let defaults = UserDefaults.standard
     
     private let viewNameLabel: UILabel = {
@@ -76,7 +80,7 @@ class SettingsViewController: UIViewController {
     // MARK: - Helpers
     
     func setupView() {
-        view.backgroundColor = .gray
+        view.backgroundColor = .black
 
         view.addSubview(viewNameLabel)
         view.addSubview(buttonBack)

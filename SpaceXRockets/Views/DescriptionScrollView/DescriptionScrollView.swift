@@ -16,7 +16,7 @@ class DescriptionScrollView: UIView {
             updateValue()
         }
     }
-
+    
     private lazy var text1: InfolabelsStack = {
         let stack = InfolabelsStack(descr: "Первый запуск")
         return stack
@@ -78,12 +78,11 @@ class DescriptionScrollView: UIView {
         return stack
     }()
     
-//    private lazy var showLaunchesButton: UIButton = {
-     var showLaunchesButton: UIButton = {
+    var showLaunchesButton: UIButton = {
         let button = UIButton()
         button.setTitle("Показать запуски", for: .normal)
-         button.backgroundColor = UIColor.cellBackgroundColor
-         button.layer.cornerRadius = 10
+        button.backgroundColor = UIColor.cellBackgroundColor
+        button.layer.cornerRadius = 10
         return button
     }()
     
@@ -95,7 +94,7 @@ class DescriptionScrollView: UIView {
     }()
     
     // MARK: - Lyficycle
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -107,10 +106,10 @@ class DescriptionScrollView: UIView {
     }
     
     // MARK: - Helpers
-
+    
     func setupView() {
         addSubview(scrollView)
-
+        
         scrollView.addSubview(text1)
         scrollView.addSubview(text2)
         scrollView.addSubview(text3)

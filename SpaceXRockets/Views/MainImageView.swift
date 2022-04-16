@@ -16,7 +16,7 @@ class MainImageView: UIView {
             updateValues()
         }
     }
-
+    
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
         view.backgroundColor = .black
@@ -71,9 +71,8 @@ class MainImageView: UIView {
     
     func setupConstraints() {
         imageView.anchor(top: topAnchor, left: leftAnchor, right: rightAnchor, height: 300)
-        
-        infoSubView.anchor(top: imageView.bottomAnchor, left: leftAnchor, right: rightAnchor, padddingTop: -25 ,height: 75)
-        
+        infoSubView.anchor(top: imageView.bottomAnchor, left: leftAnchor, right: rightAnchor,
+                           padddingTop: -25 ,height: 75)
         rocketNameLabel.centerY(inView: infoSubView, leftAncor: leftAnchor, paddingLeft: 24)
         settingsButton.centerY(inView: infoSubView, rightAnchor: rightAnchor, paddingRight: 24)
     }
@@ -91,7 +90,7 @@ class MainImageView: UIView {
                     }
                 }
             } else {
-                self.imageView.image = UIImage(systemName: "antenna.radiowaves.left.and.right.slash")
+                self.imageView.image = UIImage(systemName: Pictures.noConnection.rawValue)
             }
         }
     }

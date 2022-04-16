@@ -21,15 +21,15 @@ class InfolabelsStack: UIStackView {
         return label
     }()
     
-     var valueLabel: UILabel = {
+    var valueLabel: UILabel = {
         let label = UILabel()
-         label.textColor = .white
-         label.font.withSize(12)
+        label.textColor = .white
+        label.font.withSize(12)
         return label
     }()
     
     // MARK: - Lifecycle
-
+    
     init(descr: String) {
         super.init(frame: .zero)
         self.descriptionT = descr
@@ -51,7 +51,7 @@ class InfolabelsStack: UIStackView {
         
         setupConstraints()
     }
-
+    
     func setupConstraints() {        
         descriptionLabel.centerY(inView: self, leftAncor: leftAnchor, paddingLeft: 16)
         valueLabel.centerY(inView: self, rightAnchor: rightAnchor, paddingRight: 16)

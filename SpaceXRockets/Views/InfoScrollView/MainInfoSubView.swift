@@ -10,7 +10,7 @@ import UIKit
 class MainInfoSubView: UIView {
     
     // MARK: - Properties
-
+    
     var valueLabelM: UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -26,7 +26,7 @@ class MainInfoSubView: UIView {
     }()
     
     // MARK: - Lifecycle
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -38,7 +38,7 @@ class MainInfoSubView: UIView {
     }
     
     // MARK: - Heplers
-
+    
     func setupView() {
         backgroundColor = UIColor.cellBackgroundColor
         layer.cornerRadius = 20

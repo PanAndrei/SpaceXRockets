@@ -30,7 +30,6 @@ struct RocketViewModel {
     // MARK: - Cell
     
     var heighValue: [String]? {
-        // force
         switch defaults.integer(forKey: Settings.heigh.rawValue) {
         case 0:
             return [String(format: "%g" ,rockets.height.meters!), "Высота, m"]
@@ -38,7 +37,7 @@ struct RocketViewModel {
             return [String(format: "%g", rockets.height.feet!), "Высота, ft"]
         }
     }
-    // force
+    
     var diameterValue: [String]? {
         switch defaults.integer(forKey: Settings.diameter.rawValue) {
         case 0:
@@ -47,7 +46,7 @@ struct RocketViewModel {
             return [String(format: "%g", rockets.diameter.feet!), "Диаметр, ft"]
         }
     }
-    // force
+    
     var massValue: [String]? {
         switch defaults.integer(forKey: Settings.weight.rawValue) {
         case 0:
@@ -56,7 +55,7 @@ struct RocketViewModel {
             return [rockets.mass.lb!.formattedWithSeparator, "Масса, lb"]
         }
     }
-    // force
+    
     var payloadValue: [String]? {
         let payload = rockets.payload_weights.filter { $0.id == "leo"}.first!
         

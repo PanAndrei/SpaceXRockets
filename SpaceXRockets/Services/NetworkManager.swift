@@ -10,14 +10,11 @@ import Foundation
 class NetworkManager {
     
     let imageCache = NSCache<NSString, NSData>()
-
     static let shared = NetworkManager()
     
     init() {}
     
-    // generics
-    
-        func getRockets(completion: @escaping ([Rocket]?) -> Void) {
+    func getRockets(completion: @escaping ([Rocket]?) -> Void) {
         let url = API.rockets.url
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -69,7 +66,7 @@ class NetworkManager {
     
     func getLaunches(_ rocket: String, completion: @escaping([Launch]?) -> Void) {
         let url = API.launchec.url
-                
+        
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard error == nil else {
                 print("error \(error?.localizedDescription) in URLSession ")
@@ -91,5 +88,5 @@ class NetworkManager {
             }
         }.resume()
     }
-    
 }
+

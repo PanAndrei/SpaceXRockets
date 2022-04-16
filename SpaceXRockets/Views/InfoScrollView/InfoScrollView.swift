@@ -45,7 +45,7 @@ class InfoScrollView: UIView {
     }()
     
     // MARK: - Lifecycle
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -85,7 +85,6 @@ class InfoScrollView: UIView {
     
     func updateValues() {
         if let rocket = rocket {
-            // force unwrap
             heightLabel.valueLabelM.text = rocket.heighValue![0]
             heightLabel.descriptionLabel.text = rocket.heighValue![1]
             

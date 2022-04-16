@@ -21,8 +21,6 @@ class LaunchTableViewCell: UITableViewCell {
         }
     }
     
-    // clipstobouds
-    
     private lazy var launchNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -45,6 +43,7 @@ class LaunchTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
+        
         setupView()
     }
     
@@ -60,7 +59,6 @@ class LaunchTableViewCell: UITableViewCell {
     
     func setupView() {
         backgroundColor = UIColor.cellBackgroundColor
-        //        layer.cornerRadius = 10
         
         addSubview(launchNameLabel)
         addSubview(launchDateLabel)
@@ -70,9 +68,9 @@ class LaunchTableViewCell: UITableViewCell {
     }
     
     func setupConstraints() {
-        launchNameLabel.anchor(top: topAnchor, left: leftAnchor, padddingTop: 18, paddingLeft: 18)
+        launchNameLabel.anchor(top: topAnchor, left: leftAnchor, padddingTop: 24, paddingLeft: 24)
         launchDateLabel.anchor(top: launchNameLabel.bottomAnchor, left: leftAnchor, bottom: bottomAnchor,
-                               padddingTop: 18, paddingLeft: 18, paddingBottom: 18)
+                               padddingTop: 16, paddingLeft: 24, paddingBottom: 24)
         launchImage.centerY(inView: self, rightAnchor: rightAnchor, paddingRight: 32)
     }
 }

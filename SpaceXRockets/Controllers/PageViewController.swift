@@ -8,10 +8,9 @@
 import UIKit
 
 class PageViewController: UIViewController {
-
+    
     // MARK: - Properties
     
-    // установить програмно
     var pages = 4
     var pageViewController: UIPageViewController?
     var currentIndex: Int = 0
@@ -20,7 +19,7 @@ class PageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupPageVC()
         setupNavigationVC()
     }
@@ -53,7 +52,7 @@ class PageViewController: UIViewController {
 // MARK: - UIPageViewControllerDelegate, UIPageViewControllerDataSource
 
 extension PageViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
-
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         var index = (viewController as! MainViewController).pageIndex
@@ -70,7 +69,7 @@ extension PageViewController: UIPageViewControllerDelegate, UIPageViewController
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         var index = (viewController as! MainViewController).pageIndex
-
+        
         if (index == NSNotFound) || (index == self.pages - 1) {
             return nil
         }
@@ -82,7 +81,7 @@ extension PageViewController: UIPageViewControllerDelegate, UIPageViewController
     
     func viewControllerAtIndex(index: Int) -> MainViewController? {
         guard index < self.pages else { return nil }
-
+        
         let pageContentViewController = MainViewController()
         pageContentViewController.pageIndex = index
         

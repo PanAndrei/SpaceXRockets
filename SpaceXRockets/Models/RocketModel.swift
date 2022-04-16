@@ -14,12 +14,12 @@ struct Rocket: Codable {
     let wikipedia: String
     
     // MARK: - MainImage
-
+    
     let name: String
     let flickr_images: [String]    
     
     // MARK: - Cell
-
+    
     let height: Height
     let diameter: Diameter
     let mass: Weight

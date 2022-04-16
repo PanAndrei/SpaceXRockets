@@ -7,15 +7,9 @@
 
 import UIKit
 
-// add description view
-
 class MainViewController: UIViewController {
     
     // MARK: - Properties
-    
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        return .lightContent
-//    }
     
     var pageIndex = 0
     var viewModel = RocketsPackViewModel()
@@ -37,14 +31,12 @@ class MainViewController: UIViewController {
         return view
     }()
     
-    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getRockets()
-        
         setupView()
     }
     
@@ -59,8 +51,6 @@ class MainViewController: UIViewController {
     }
     
     func setupView() {
-//        self.navigationController?.navigationBar.tintColor = .white
-        
         view.backgroundColor = .black
         
         view.addSubview(mainImageView)
@@ -74,12 +64,11 @@ class MainViewController: UIViewController {
         mainImageView.anchor(top: view.topAnchor, left: view.leftAnchor,right: view.rightAnchor,
                              height: 350)
         
-        infoScrollView.anchor(top: mainImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor,
+        infoScrollView.anchor(top: mainImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, padddingTop: -25,
                               height: 100)
         
         descriptionScrollView.anchor(top: infoScrollView.bottomAnchor, left: view.leftAnchor,
                                      bottom: view.bottomAnchor, right: view.rightAnchor)
-        
     }
     
     // MARK: - Selectors
@@ -87,19 +76,12 @@ class MainViewController: UIViewController {
     @objc func goToSettings() {
         let settingsVC = SettingsViewController()
         self.present(settingsVC, animated: true)
-        
-//        navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
     
     @objc func goToLaunch() {
-        //
         let vc = LauchHistoryViewController()
-        // force
         vc.rocket = viewModel.rocketPack[self.pageIndex].id!
         
-        //
         navigationController?.pushViewController(vc, animated: true)
-//        navigationController?.pushViewController(LauchHistoryViewController(), animated: true)
-
     }
 }

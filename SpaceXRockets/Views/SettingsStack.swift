@@ -17,6 +17,7 @@ class SettingsStack: UIStackView {
     
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .white
         label.text = descriptionS
         return label
     }()
@@ -26,8 +27,8 @@ class SettingsStack: UIStackView {
         
         let switcher = UISegmentedControl(items: items)
         switcher.layer.cornerRadius = 5
-        switcher.backgroundColor = .orange
-        switcher.tintColor = .green
+        switcher.backgroundColor = UIColor.cellBackgroundColor
+        switcher.tintColor = .black
         return switcher
     }()
     
@@ -50,7 +51,7 @@ class SettingsStack: UIStackView {
     // MARK: - Helpers
     
     func setupView() {
-        backgroundColor = .green
+        backgroundColor = .black
         
         addSubview(descriptionLabel)
         addSubview(measureSwitcher)
@@ -59,9 +60,7 @@ class SettingsStack: UIStackView {
     }
     
     func setupConstraints() {
-        
         descriptionLabel.centerY(inView: self, leftAncor: leftAnchor, paddingLeft: 16)
-        
         measureSwitcher.centerY(inView: self, rightAnchor: rightAnchor, paddingRight: 16)
     }
 }

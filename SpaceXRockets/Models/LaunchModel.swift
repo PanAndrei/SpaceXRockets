@@ -9,13 +9,8 @@ import Foundation
 
 struct Launch: Codable {
     
-    // MARK: - Launches
-
-    // add wiki
-    
     let rocket: String
     let success: Bool?
     let name: String
     let date_utc: String
-    
 }

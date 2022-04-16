@@ -19,7 +19,6 @@ struct LaunchViewModel {
         return launches.date_utc.getFormattedDateString(oldFormat: "yyyy-MM-dd'T'HH:mm:ss.sssZ", newFormat: "d MMMM, yyyy")
     }
     
-    // force unwrap
     var picture: String {
         return launches.success! ? Pictures.success.rawValue : Pictures.failure.rawValue
     }

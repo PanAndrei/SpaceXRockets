@@ -16,24 +16,12 @@ enum Settings: String {
 
 enum Keys: String {
     case notificationUpdade = "reloadView"
+    case cellIdentifier = "cell"
 }
 
 enum Pictures: String {
     case success = "image1"
     case failure = "image2"
     case settings = "image3"
+    case noConnection = "antenna.radiowaves.left.and.right.slash"
 }
-
-
-
-// энам для картинок
-
-//энам для цветов
-
-// белый текст времени вверху
-
-// инфо вью и вики
-
-// длина сролов
-
-// errors cathing
